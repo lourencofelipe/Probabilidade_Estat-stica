@@ -1,37 +1,53 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        <title>Page Title</title>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
 
     </head>
     <body>
         <div class="row">
-            <div class="col-md-4"></div>
+            <div class="col-md-3"></div>
             
             <input type="hidden" id="escondeLinhas" name="escondeLinhas">
+            <input type="hidden" id="contador"      name="contador">
 
-            <div class="col-md-4 text-center">
-                <div class="card" >
-                    <div class="card-body">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                <th scope="col">Custo</th>
-                                <th scope="col">Fi</th>
-                                <th scope="col">Xi</th>
-                                <th scope="col">XiFi</th>
-                                </tr>
-                            </thead>
-                            <tbody id="dadosTabela">
-                                
-                            </tbody>
-                        </table>
+            <div class="col-md-6">
+                <div class="row" style="margin-bottom:10px; padding-top:10px">
+                    <div class="col">
+                        <button type="button" class="btn btn-success" onclick="recarregaPagin()">Recarregar pagina</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card" >
+                            <div class="card-body">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">Custo R$ </th>
+                                        <th scope="col">Fi</th>
+                                        <th scope="col">Xi</th>
+                                        <th scope="col">XiFi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="dadosTabela">
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4"></div>
+            <div class="col-md-3"></div>
         </div>
 
             <!-- Modal -->
@@ -48,29 +64,38 @@
                         <div class="row">
                             <div class="col">
                                 <label for="vlminimo">Informe o valor minimo</label>
-                                <input onblur="vlValores('minimo')" type="text" name="vlminimo" class="form-control" id="vlminimo" aria-describedby="vlminimohelp" placeholder="Informe o valor Minimo">
-                                <small id="vlminimohelp" class="form-text text-muted">Informe o valor minimo.</small>
+                                <input onblur="vlValores('minimo')" type="text" name="vlminimo" class="form-control" id="vlminimo" aria-describedby="vlminimohelp" placeholder="Ex: 2">
+                                <small id="vlminimohelp" class="form-text text-muted"></small>
                             </div>
                             <div class="col">
                                 <label for="vlmaximo">Informe o valor maximo</label>
-                                <input onblur="vlValores('maximo')" type="text" name="vlmaximo" class="form-control" id="vlmaximo" aria-describedby="vlmaximoHelp" placeholder="Informe o valor Maximo">
-                                <small id="vlmaximo" class="form-text text-muted">Informe o valor Maiximo</small>
+                                <input onblur="vlValores('maximo')" type="text" name="vlmaximo" class="form-control" id="vlmaximo" aria-describedby="vlmaximoHelp" placeholder="Ex: 4">
+                                <small id="vlmaximo" class="form-text text-muted"></small>
                             </div>
                         </div>
-                        
+
+                        <div class="row">
+                            <div class="col">
+                                <label for="vlminimo">Informe o de Fi</label>
+                                <input type="text" name="vlFi" class="form-control" id="vlFi" aria-describedby="vlminimohelp" placeholder="Ex: 8">
+                                <small id="vlminimohelp" class="form-text text-muted"></small>
+                            </div>
+                            <div class="col"></div>
+                        </div>                        
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary"  onclick="vlDados('')">Ok</button>
+                        <button type="button" class="btn btn-primary"  onclick="montaTabela('', 'retorno')">calcular</button>
                     </div>
                 </div>
             </div>
         </div>
     </body>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="node_modules/bootbox/dist/bootbox.all.min.js"></script>
-    <script src="node_modules/bootbox/dist/bootbox.locales.min.js"></script>
+
+
     <script src="js/events.js"></script>
+
 </html>
