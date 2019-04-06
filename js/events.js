@@ -4,7 +4,7 @@ contador  = 0;
 totalfi   = 0;
 totalxifi = 0;
 
-$( document ).ready(function() {
+$(document).ready(function() {
     bootbox.prompt("Informe a quantidade de Linhas! ", function( linhas ) { 
         let msg = validate( " Quantidade", linhas, 'linhas' );
         
@@ -14,6 +14,7 @@ $( document ).ready(function() {
             montaTabela( linhas, 'chamada' );
         }            
     });
+    $('.bootbox-form').find('input')[0].getAttribute('type') = 'number';
 });
 
 function validate( campo, valor, tp ) {
@@ -40,7 +41,6 @@ function modals( msg, tpModal ) {
     } else {
         bootbox.alert( msg );
     }
-    
     return valor;
 }
 

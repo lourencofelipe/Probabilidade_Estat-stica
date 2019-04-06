@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Samael Pereira simoes  e Felipe Lourenço",
+  "author": "Samael Pereira simoes e Felipe Lourenço",
   "license": "ISC",
   "dependencies": {
     "bootbox": "^5.0.1",
